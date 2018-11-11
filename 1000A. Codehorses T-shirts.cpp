@@ -20,4 +20,45 @@ What is the minimal number of seconds Ksenia is required to spend to change the 
 The lists are unordered. 
 That means, two lists are considered equal if and only if the number of occurrences of any string is the same in both lists.
 
+Input
+The first line contains one integer n (1≤n≤100) — the number of T-shirts.
+The i-th of the next n lines contains ai — the size of the i-th T-shirt of the list for the previous year.
+The i-th of the next n lines contains bi — the size of the i-th T-shirt of the list for the current year.
+It is guaranteed that all the sizes in the input are valid. It is also guaranteed that Ksenia can produce list b from the list a.
+
+Output
+Print the minimal number of seconds Ksenia is required to spend to change the last year list to the current one. 
+If the lists are already equal, print 0.
+
+Examples
+input
+3
+XS
+XS
+M
+XL
+S
+XS
+output
+2
+
+input
+2
+XXXL
+XXL
+XXL
+XXXS
+output
+1
+
+input
+2
+M
+XS
+XS
+M
+output
+0
+
 */
+
