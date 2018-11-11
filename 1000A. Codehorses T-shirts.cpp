@@ -65,3 +65,24 @@ output
 
 */
 
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    scanf("%d",&n);
+    unordered_map<string,int> mp;
+    string s;
+    int ans=0;
+    for(int i=0;i<n;++i){
+        cin>>s;
+        mp[s]++;
+    }
+    for(int i=0;i<n;++i){
+        cin>>s;
+        if(mp[s]) mp[s]--;
+        else ans++;
+    }
+    printf("%d",ans);
+}
+
