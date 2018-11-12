@@ -37,15 +37,63 @@ input
 4 6 7
 output
 8
+
 input
 2 12
 1 10
 output
 9
+
 input
 2 7
 3 4
 output
 6
 
+解法：首先记录下到ai时刻一共开的时长on[i]和关的时长off[i]
+      为了使开的时间最长，由贪心发现插入位置x在a[i]-1或者a[i]+1
+      
 */
+
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MAXN=100010;
+int a[MAXN];
+int on[MAXN];
+int off[MAXN];
+int n,M;
+
+int main() {
+    scanf("%d%d",&n,&M);
+    for(int i=1;i<=n;++i){
+        scanf("%d",&a[i]);
+    }
+    a[n+1]=M;
+    for(int i=1;i<=n+1;++i){
+        if(i&1){
+            on[i]=on[i-1]+a[i]-a[i-1];  // 奇数位为关，即累加之前开的时间a[i]-a[i-1]
+            off[i]=off[i-1];
+        }else{
+            on[i]=on[i-1];  
+            off[i]=off[i-1]+a[i]-a[i-1];  // 偶数位为开，即累加之前关的时间a[i]-a[i-1]
+        }
+    }
+    int ans=on[n+1];
+    for(int i=1;i<=n;++i){
+        int tmp=0;
+        if(a[i]-a[i-1]>1||a[i+1]-a[i]>1){  // 判断左或右有空余位置
+            if(i&1){
+                tmp=on[i]-1+off[n+1]-off[i];  // 奇数位为关，在a[i]-1位置插入，即a[i]-1为关，a[i]为开，a[i]位置开的时间减一
+             // tmp=on[i]+off[n+1]-off[i]-1;  // 在a[i]+1位置插入，即a[i]为关，a[i]+1为开，a[i]位置之后反转后开的时间减一
+            }else{
+                tmp=on[i]+1+off[n+1]-off[i];  // 偶数位为开，在a[i]-1位置插入，即a[i]-1为开，a[i]为关，a[i]位置关的时间减一，即开的时间加一
+             // tmp=on[i]+off[n+1]-off[i]+1;  // 在a[i]+1位置插入，即a[i]为开，a[i]+1为关，a[i]位置之后反转后关的时间减一，即开的时间加一
+            }
+        }
+        ans=max(ans,tmp);
+    }
+    printf("%d",ans);
+}
+
+
