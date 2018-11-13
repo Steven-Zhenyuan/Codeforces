@@ -57,9 +57,9 @@ int main(){
     }
     ll prev=0,cnt=0;
     for(auto it:mp){
-        ans[cnt]+=it.first-prev;
+        ans[cnt]+=it.first-prev;  // 统计此区间段内时间点的个数
         prev=it.first;
-        cnt+=it.second;
+        cnt+=it.second;  // 累加权值，即得到当前区间段内的覆盖数
     }
     for(int i=1;i<=n;++i) printf("%lld ",ans[i]);
 }
