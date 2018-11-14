@@ -12,8 +12,8 @@
 
 [(unsolved) 1000F. One Occurrence —— 线段树+离线处理](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/1000F.%20One%20Occurrence.cpp)
 
-[999A. Mishka and Contest](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999A.%20Mishka%20and%20Contest.cpp)
+[999A. Mishka and Contest —— 暴力](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999A.%20Mishka%20and%20Contest.cpp)
 
-[999B. Reversing Encryption](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999B.%20Reversing%20Encryption.cpp)
+[999B. Reversing Encryption —— 暴力](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999B.%20Reversing%20Encryption.cpp)
 
-[999C. Alphabetic Removals](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999C.%20Alphabetic%20Removals.cpp)
+[999C. Alphabetic Removals —— 暴力](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999C.%20Alphabetic%20Removals.cpp)
