@@ -33,3 +33,34 @@ output
 7
 
 */
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+const int MAXN=1010;
+const int MOD=998244353;
+int a[MAXN],dp[MAXN],sums[MAXN];
+int C[MAXN][MAXN];
+
+int main(){
+    int n,i,j;
+    scanf("%d",&n);
+    for(i=1;i<=n;++i) scanf("%d",&a[i]);
+    for(i=0;i<=n;++i) C[i][0]=1,C[i][1]=i,C[i][i]=1;
+    for(i=1;i<=n;++i){
+        for(j=1;j<=n;++j){
+            C[i][j]=(C[i-1][j-1]+C[i-1][j])%MOD;
+        }
+    }
+    for(i=n;i>=1;--i){
+        if(a[i]>0){
+            for(j=i+a[i];j<=n;++j){
+                dp[i]=(dp[i]+(ll)C[j-i-1][a[i]-1]*(1+sums[j+1])%MOD)%MOD;
+            }
+        }
+        sums[i]=(sums[i+1]+dp[i])%MOD;
+    }
+    printf("%d",sums[1]);
+}
+
