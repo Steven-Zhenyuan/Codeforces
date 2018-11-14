@@ -15,3 +15,5 @@
 [999A. Mishka and Contest](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999A.%20Mishka%20and%20Contest.cpp)
 
 [999B. Reversing Encryption](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999B.%20Reversing%20Encryption.cpp)
+
+[999C. Alphabetic Removals](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999C.%20Alphabetic%20Removals.cpp)
