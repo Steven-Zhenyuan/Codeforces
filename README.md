@@ -8,4 +8,4 @@
 
 [1000D. Yet Another Problem On a Subsequence 动态规划+组合数](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/1000D.%20Yet%20Another%20Problem%20On%20a%20Subsequence.cpp)
 
-[1000E. We Need More Bosses 无向图缩点建图+树的直径](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/1000E.%20We%20Need%20More%20Bosses.cpp)
+[1000E. We Need More Bosses Tarjan缩点+树的直径](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/1000E.%20We%20Need%20More%20Bosses.cpp)
