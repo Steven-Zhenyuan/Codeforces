@@ -58,3 +58,88 @@ Tarjan缩点：即为Tarjan算法求强连通分量，在无向图中无需vis[]
 
 */
 
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+const int MAXN=600060;
+
+struct node{
+    int to,next;
+}adj[MAXN];
+int head[MAXN],tot;
+vector<int>G[MAXN];
+
+int dfn[MAXN],low[MAXN],depth;
+int st[MAXN],top,scc[MAXN],cnt;
+int dia[MAXN];
+
+void init(){
+    tot=1;
+    depth=top=cnt=0;
+    memset(head,-1,sizeof(head));
+    memset(scc,0,sizeof(scc));
+    memset(dfn,0,sizeof(dfn));
+    memset(dia,0,sizeof(dia));
+}
+
+void addEdge(int u,int v){
+    adj[tot].next=head[u];
+    adj[tot].to=v;
+    head[u]=tot++;
+}
+
+void tarjan(int u,int fa){
+    dfn[u]=low[u]=++depth;
+    st[++top]=u;
+    for(int i=head[u];~i;i=adj[i].next){
+        int v=adj[i].to;
+        if(v==fa) continue;
+        if(!dfn[v]){
+            tarjan(v,u);
+            low[u]=min(low[u],low[v]);
+        }else low[u]=min(low[u],dfn[v]);
+    }
+    if(low[u]==dfn[u]){
+        cnt++;
+        while(true){
+            int x=st[top--];
+            scc[x]=cnt;
+            if(x==u) break;
+        }
+    }
+}
+
+void dfs(int u,int fa){
+    dia[u]=dia[fa]+1;
+    for(int i=0;i<G[u].size();++i){
+        if(G[u][i]!=fa) dfs(G[u][i],u);
+    }
+}
+
+int main(){
+    int n,m,u,v,i,j;
+    scanf("%d%d",&n,&m);
+    init();
+    for(i=0;i<m;++i){
+        scanf("%d%d",&u,&v);
+        addEdge(u,v);
+        addEdge(v,u);
+    }
+    tarjan(1,0);
+    for(i=1;i<=n;++i){
+        for(j=head[i];~j;j=adj[j].next){
+            if(scc[i]!=scc[adj[j].to]){
+                G[scc[i]].push_back(scc[adj[j].to]);   
+            }
+        }
+    }
+    dfs(1,0);
+    int S=0,ans=0;
+    for(i=1;i<=cnt;++i) if(dia[i]>dia[S]) S=i;
+    dfs(S,0);
+    for(i=1;i<=cnt;++i) ans=max(ans,dia[i]-1);
+    printf("%d\n",ans);
+}
+
+
