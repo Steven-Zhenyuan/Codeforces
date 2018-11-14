@@ -41,4 +41,31 @@ input
 output
 5
 
+解法：从左往右，从右往左扫描，计数小于等于k的值
+
 */
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+const int MAXN=110;
+int a[MAXN];
+
+int main(){
+    int n,k,i,j;
+    scanf("%d%d",&n,&k);
+    for(i=0;i<n;++i) scanf("%d",&a[i]);
+    int ans=0;
+    for(i=0;i<n;++i){
+        if(a[i]<=k) ans++;
+        else break;
+    }
+    for(j=n-1;j>i;--j){
+        if(a[j]<=k) ans++;
+        else break;
+    }
+    printf("%d",ans);
+}
+
+
