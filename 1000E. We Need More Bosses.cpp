@@ -46,7 +46,7 @@ output
 
 题意：无向图，任意两点都要能连通，则存在一些必经的边为关键边，找一条路径，使得其关键边最多，输出关键边的数量
 
-解法：若几个结点之间存在环，则这个环的任意一条边都不是关键边，用Tarjan算法缩点，重新建图得到树图，该树的直径即为关键边的数量
+解法：若几个节点之间存在环，则这个环的任意一条边都不是关键边，用Tarjan算法缩点，重新建图得到树图，该树的直径即为关键边的数量
       
             _____________                      _______
            |             |                    |       |           1
@@ -54,11 +54,11 @@ output
       ||_________|   |                        |___|            4     5
       |______________|
       
-Tarjan缩点：即为Tarjan算法求强连通分量，在无向图中无需vis[]标记当前结点是否in stack
+Tarjan缩点：即为Tarjan算法求强连通分量，在无向图中无需vis[]标记当前节点是否in stack
 强连通分量：在有向图G中，如果两个顶点u,v之间有一条从u到v的有向路径，同时还有一条从v到u的有向路径，则两个顶点强连通
            如果有向图G的每两个顶点都强连通，则G为强连通图
            有向图中的极大强连通子图，称为强连通分量(strongly connected components)
-Tarjan算法：基于深度优先搜索，搜索时，把当前搜索树中未处理的结点加入一个堆栈，回溯时可以判断栈顶到栈中的结点是否为一个强连通分量           
+Tarjan算法：基于深度优先搜索，搜索时，把当前搜索树中未处理的节点加入一个堆栈，回溯时可以判断栈顶到栈中的节点是否为一个强连通分量           
 
 */
 
@@ -71,12 +71,15 @@ const int MAXN=600060;
 struct node{
     int to,next;
 }adj[MAXN];
-int head[MAXN],tot;
-vector<int>G[MAXN];
+int head[MAXN],tot;  // 链式前向星建原图
+vector<int>G[MAXN];  // 缩点后的新图
 
-int dfn[MAXN],low[MAXN],depth;
-int st[MAXN],top,scc[MAXN],cnt;
-int dia[MAXN];
+int dfn[MAXN];  // 表示节点在DFS时的次序编号，即为时间戳
+int low[MAXN];  // 表示该节点及其子节点能够回溯到的最小dfn次序编号
+int depth;  // 表示DFS深度，即为时间戳
+int st[MAXN],top;  // 表示栈
+int scc[MAXN],cnt;  // 记录强连通分量结果
+int dia[MAXN];  // 记录以该节点为顶点的树的直径
 
 void init(){
     tot=1;
@@ -94,21 +97,21 @@ void addEdge(int u,int v){
 }
 
 void tarjan(int u,int fa){
-    dfn[u]=low[u]=++depth;
-    st[++top]=u;
+    dfn[u]=low[u]=++depth;  // 初始化当前时间戳
+    st[++top]=u;  // 入栈，若为有向图需要新增inStack[]来记录已访问过的节点
     for(int i=head[u];~i;i=adj[i].next){
         int v=adj[i].to;
-        if(v==fa) continue;
-        if(!dfn[v]){
+        if(v==fa) continue;  // 避免重边
+        if(!dfn[v]){  // 未访问过节点v，从节点v开始DFS
             tarjan(v,u);
-            low[u]=min(low[u],low[v]);
-        }else low[u]=min(low[u],dfn[v]);
+            low[u]=min(low[u],low[v]);  // 更新low[u]，因为节点v是节点u的子节点
+        }else low[u]=min(low[u],dfn[v]);  // 更新low[u]，同理
     }
-    if(low[u]==dfn[u]){
+    if(low[u]==dfn[u]){  // 若发现节点u及其子节点都不能回溯到dfn次序更小的节点，则节点u及其子节点构成一个强连通分量
         cnt++;
         while(true){
             int x=st[top--];
-            scc[x]=cnt;
+            scc[x]=cnt;  // 将栈中该强连通分量的节点都打上对应的scc标记
             if(x==u) break;
         }
     }
@@ -130,18 +133,18 @@ int main(){
         addEdge(u,v);
         addEdge(v,u);
     }
-    tarjan(1,0);
+    tarjan(1,0);  // tarjan缩点
     for(i=1;i<=n;++i){
         for(j=head[i];~j;j=adj[j].next){
             if(scc[i]!=scc[adj[j].to]){
-                G[scc[i]].push_back(scc[adj[j].to]);   
+                G[scc[i]].push_back(scc[adj[j].to]);  // 根据缩点后的标记重新建图
             }
         }
     }
-    dfs(1,0);
+    dfs(1,0);  // 从任意点出发初始化当前树各点的深度
     int S=0,ans=0;
-    for(i=1;i<=cnt;++i) if(dia[i]>dia[S]) S=i;
-    dfs(S,0);
+    for(i=1;i<=cnt;++i) if(dia[i]>dia[S]) S=i;  // 寻找当前树中最深的节点
+    dfs(S,0);  // 从最深的节点出发，即可得到最大直径
     for(i=1;i<=cnt;++i) ans=max(ans,dia[i]-1);
     printf("%d\n",ans);
 }
