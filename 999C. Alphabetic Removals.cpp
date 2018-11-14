@@ -40,4 +40,28 @@ u
 output
 ''
 
+解法：将string排序后，按题意中的算法，即为按顺序移除，用buckets记录当前字母被移除的次数
+      对原string，根据buckets中的次数决定打印或移除
+
 */
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int buckets[256];
+
+int main(){
+    int n,k,i;
+    string s,t;
+    cin>>n>>k>>s;
+    t=s;
+    sort(t.begin(),t.end());
+    for(i=0;i<k;++i) buckets[t[i]]++;
+    for(i=0;i<n;++i){
+        if(buckets[s[i]]) buckets[s[i]]--;
+        else cout<<s[i];
+    }
+}
+
+
