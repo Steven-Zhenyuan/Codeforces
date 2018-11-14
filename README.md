@@ -11,3 +11,5 @@
 [*1000E. We Need More Bosses —— Tarjan缩点+树的直径](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/1000E.%20We%20Need%20More%20Bosses.cpp)
 
 [(unsolved) 1000F. One Occurrence —— 线段树+离线处理](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/1000F.%20One%20Occurrence.cpp)
+
+[999A. Mishka and Contest](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999A.%20Mishka%20and%20Contest.cpp)
