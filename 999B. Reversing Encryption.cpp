@@ -38,4 +38,26 @@ z
 output
 z
 
+解法：反向再次实现题目中的算法，divisors in increasing order
+
 */
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main(){
+    int n,i;
+    string s;
+    cin>>n>>s;
+    vector<int> a;
+    for(i=1;i<=n;++i){
+        if(n%i==0) a.push_back(i);
+    }
+    for(i=0;i<a.size();++i){
+        reverse(s.begin(),s.begin()+a[i]);
+    }
+    cout<<s;
+}
+
+
