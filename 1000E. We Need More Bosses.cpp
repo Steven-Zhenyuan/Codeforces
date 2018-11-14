@@ -79,7 +79,7 @@ int low[MAXN];  // 表示该节点及其子节点能够回溯到的最小dfn次�
 int depth;  // 表示DFS深度，即为时间戳
 int st[MAXN],top;  // 表示栈
 int scc[MAXN],cnt;  // 记录强连通分量结果
-int dia[MAXN];  // 记录以该节点为顶点的树的直径
+int dia[MAXN];  // 记录当前树的各节点的深度，即可得到树的直径
 
 void init(){
     tot=1;
@@ -98,14 +98,14 @@ void addEdge(int u,int v){
 
 void tarjan(int u,int fa){
     dfn[u]=low[u]=++depth;  // 初始化当前时间戳
-    st[++top]=u;  // 入栈，若为有向图需要新增inStack[]来记录已访问过的节点
+    st[++top]=u;  // 入栈，若为有向图需要新增vis[]来记录已访问过的节点，vis[u]=true;
     for(int i=head[u];~i;i=adj[i].next){
         int v=adj[i].to;
         if(v==fa) continue;  // 避免重边
         if(!dfn[v]){  // 未访问过节点v，从节点v开始DFS
             tarjan(v,u);
             low[u]=min(low[u],low[v]);  // 更新low[u]，因为节点v是节点u的子节点
-        }else low[u]=min(low[u],dfn[v]);  // 更新low[u]，同理
+        }else low[u]=min(low[u],dfn[v]);  // 更新low[u]，同理，有向图中先判断是否已在栈中，if(vis[v])
     }
     if(low[u]==dfn[u]){  // 若发现节点u及其子节点都不能回溯到dfn次序更小的节点，则节点u及其子节点构成一个强连通分量
         cnt++;
