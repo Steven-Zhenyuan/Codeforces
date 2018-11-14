@@ -32,6 +32,17 @@ input
 output
 7
 
+解法：动态规划，dp[i]表示以a[i]开头的good subsequence的个数
+              sums[i]表示a[i...]中的good subsequence的个数，则sums[1]为结果
+              
+      对于a[i...j]，i+a[i]<=j<=n，有
+      dp[i]+=C(j-i-1,a[i]-1)*(1+sums[j+1])
+      即从j-i-1个元素中选择a[i]-1个，并以a[i]开头，a[j]结尾构成good subsequence，C[j-i-1][a[i]-1]表示该组合数
+      与之后的good subsequence进行组合，即乘(1+sums[j+1])，由于之后可选择的范围在0,1,...,sums[j+1]，因此需要加一
+      
+      预处理组合数C，由递推公式C(n,m)=C(n-1,m-1)+C(n-1,m)得到
+      对于i，从后往前循环，因为sums[i]=sums[i+1]+dp[i]，需要先求出i位置之后的状态
+      对于所有可能的j，累加求出dp[i]，并更新sums[i]
 */
 
 #include <bits/stdc++.h>
@@ -47,12 +58,16 @@ int main(){
     int n,i,j;
     scanf("%d",&n);
     for(i=1;i<=n;++i) scanf("%d",&a[i]);
+    
+    // 预处理组合数
     for(i=0;i<=n;++i) C[i][0]=1,C[i][1]=i,C[i][i]=1;
     for(i=1;i<=n;++i){
         for(j=1;j<=n;++j){
             C[i][j]=(C[i-1][j-1]+C[i-1][j])%MOD;
         }
     }
+    
+    // DP过程
     for(i=n;i>=1;--i){
         if(a[i]>0){
             for(j=i+a[i];j<=n;++j){
@@ -61,6 +76,7 @@ int main(){
         }
         sums[i]=(sums[i+1]+dp[i])%MOD;
     }
+    
     printf("%d",sums[1]);
 }
 
