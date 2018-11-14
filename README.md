@@ -4,7 +4,7 @@
 
 [1000B. Light It Up —— 贪心+模拟](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/1000B.%20Light%20It%20Up.cpp)
 
-[1000C. Covered Points Count —— 差分](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/1000C.%20Covered%20Points%20Count.cpp)
+[1000C. Covered Points Count —— 一维差分](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/1000C.%20Covered%20Points%20Count.cpp)
 
 [1000D. Yet Another Problem On a Subsequence —— 动态规划+组合数](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/1000D.%20Yet%20Another%20Problem%20On%20a%20Subsequence.cpp)
 
