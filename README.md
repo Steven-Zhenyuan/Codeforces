@@ -17,3 +17,5 @@
 [999B. Reversing Encryption —— Brute Force](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999B.%20Reversing%20Encryption.cpp)
 
 [999C. Alphabetic Removals —— Brute Force](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999C.%20Alphabetic%20Removals.cpp)
+
+[999D. Equalize the Remainders —— 贪心+二分](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999D.%20Equalize%20the%20Remainders.cpp)
