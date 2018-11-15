@@ -24,6 +24,6 @@
 
 [? 999F. Cards and Joy —— 动态规划](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999F.%20Cards%20and%20Joy.cpp)
 
-[998A. Balloons ](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/998A.%20Balloons.cpp)
+[998A. Balloons —— Brute Force](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/998A.%20Balloons.cpp)
 
 [998B. Cutting ](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/998B.%20Cutting.cpp)
