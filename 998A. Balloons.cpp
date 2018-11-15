@@ -43,4 +43,28 @@ input
 output
 -1
 
+解法：只有两种情况不符合条件，1. 只有一个数，2. 只有两个相等的数
+      排序后取第一个数分配个其中一个人，即可保证两人的总数不相等
+
 */
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int a[15];
+int c[1010];
+
+int main(){
+    int n,i;
+    scanf("%d",&n);
+    for(i=1;i<=n;++i) scanf("%d",&a[i]),c[a[i]]=i;
+    sort(a,a+n);
+    if(n==1||(n==2&&a[1]==a[n])) printf("%d",-1);
+    else printf("%d\n%d",1,c[a[1]]);
+}
+
+
+
+
+
