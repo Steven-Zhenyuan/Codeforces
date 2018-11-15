@@ -39,3 +39,31 @@ output
 0 1 2 3 
 
 */
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+const int MAXN=200020;
+ll a[MAXN],c[MAXN];
+set<int> s;
+
+int main(){
+    int n,m,i;
+    ll ans=0;
+    scanf("%d%d",&n,&m);
+    for(i=0;i<m;++i) s.insert(i);
+    for(i=0;i<n;++i){
+        scanf("%lld",&a[i]);
+        int d=a[i]%m,x;
+        if(d>*s.rbegin()) x=*s.begin();
+        else x=*s.lower_bound(d);
+        if(++c[x]==n/m) s.erase(x);
+        ans+=(x-d+m)%m;
+        a[i]+=(x-d+m)%m;
+    }
+    printf("%lld\n",ans);
+    for(i=0;i<n;++i) printf("%lld ",a[i]);
+}
+
+
