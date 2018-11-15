@@ -46,3 +46,37 @@ output
 0
 
 */
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+const int MAXN=100010;
+int c[5005],f[505],h[15];
+int C[MAXN],F[MAXN];
+int dp[5005][505];
+
+int main(){
+    int n,k,i,j,p;
+    scanf("%d%d",&n,&k);
+    for(i=0;i<n*k;++i) scanf("%d",&c[i]),C[c[i]]++;
+    for(i=0;i<n;++i) scanf("%d",&f[i]),F[f[i]]++;
+    for(i=1;i<=k;++i) scanf("%d",&h[i]);
+    
+    for(i=1;i<=n*k;++i) dp[i][1]=h[min(i,k)];
+    for(i=1;i<=n*k;++i){
+        for(j=2;j<=n;++j){
+            for(p=1;p<=min(i,k);++p){
+                dp[i][j]=max(dp[i][j],dp[i-p][j-1]+h[p]);
+            }
+        }
+    }
+    
+    ll ans=0;
+    for(i=0;i<MAXN;++i){
+        if(F[i]) ans+=dp[C[i]][F[i]];
+    }
+    printf("%lld",ans);
+}
+
+
