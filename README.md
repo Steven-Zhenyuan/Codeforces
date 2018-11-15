@@ -21,3 +21,5 @@
 [999D. Equalize the Remainders —— 贪心+二分](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999D.%20Equalize%20the%20Remainders.cpp)
 
 [(unsolved) 999E. Reachability from the Capital —— Tarjan缩点](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999E.%20Reachability%20from%20the%20Capital.cpp)
+
+[(unsolved) 999F. Cards and Joy —— 动态规划](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999F.%20Cards%20and%20Joy.cpp)
