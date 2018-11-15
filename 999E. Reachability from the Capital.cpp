@@ -43,6 +43,9 @@ input
 output
 1
 
+解法：Tarjan缩点，在新图中，若一个强连通分量里有一个节点入度为0，则需要从源点添加一条路径到该连通分量
+      则至少添加的路径数=入度为0的节点所在的强连通分量的个数
+
 */
 
 #include <bits/stdc++.h>
@@ -79,7 +82,7 @@ void addEdge(int u,int v){
     head[u]=tot++;
 }
 
-void tarjan(int u){
+void tarjan(int u){  // 有向图强连通分量的Tarjan算法
     dfn[u]=low[u]=++depth;
     st[++top]=u;
     vis[u]=1;
@@ -110,19 +113,19 @@ int main(){
         addEdge(u,v);
     }
     for(i=1;i<=n;++i){
-        if(!dfn[i]) tarjan(i);
+        if(!dfn[i]) tarjan(i);  // 对所有连通点和孤立点执行Tarjan算法
     }
-    indegree[scc[s]]=1;
+    indegree[scc[s]]=1;  // 源点不计入结果，设置其入度为1
     for(i=1;i<=n;++i){
         for(j=head[i];~j;j=adj[j].next){
             if(scc[i]!=scc[adj[j].to]){
-                indegree[scc[adj[j].to]]++;
+                indegree[scc[adj[j].to]]++;  // 统计各强连通分量的入度
             }
         }
     }
     int ans=0;
     for(i=1;i<=cnt;++i){
-        if(indegree[i]==0) ans++;
+        if(indegree[i]==0) ans++;  // 入度为0的强连通分量需要一个从源点到其中任意一点的路径
     }
     printf("%d",ans);
 }
