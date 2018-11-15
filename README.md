@@ -19,3 +19,5 @@
 [999C. Alphabetic Removals —— Brute Force](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999C.%20Alphabetic%20Removals.cpp)
 
 [999D. Equalize the Remainders —— 贪心+二分](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999D.%20Equalize%20the%20Remainders.cpp)
+
+[999E. Reachability from the Capital —— Tarjan缩点](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/999E.%20Reachability%20from%20the%20Capital.cpp)
