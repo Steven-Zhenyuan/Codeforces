@@ -38,6 +38,12 @@ output
 0
 0 1 2 3 
 
+解法：余数为0,1,...,m-1，用c[i]统计该余数i出现的次数，用set来存放未填满的余数
+      当该余数出现的次数达到n/m时，从set中移除
+      对每个余数d=a[i]%m，贪心思路，由于要使最终移动的次数最小，因此首先找离d最近的余数，在set中用二分搜索找到第一个大于等于d的余数，set已经排好序
+      特殊情况：当二分搜索找到的位置超过set的最后位置，由余数的性质，返回set里的第一个余数
+      最后再累加答案和更新原数组
+
 */
 
 #include <bits/stdc++.h>
@@ -52,15 +58,15 @@ int main(){
     int n,m,i;
     ll ans=0;
     scanf("%d%d",&n,&m);
-    for(i=0;i<m;++i) s.insert(i);
+    for(i=0;i<m;++i) s.insert(i);  // 先将所有可能的余数加入set
     for(i=0;i<n;++i){
         scanf("%lld",&a[i]);
         int d=a[i]%m,x;
-        if(d>*s.rbegin()) x=*s.begin();
-        else x=*s.lower_bound(d);
-        if(++c[x]==n/m) s.erase(x);
-        ans+=(x-d+m)%m;
-        a[i]+=(x-d+m)%m;
+        if(d>*s.rbegin()) x=*s.begin();  // 特殊情况处理
+        else x=*s.lower_bound(d);  // 二分搜索找到set里第一个大于等于余数d的余数x
+        if(++c[x]==n/m) s.erase(x);  // 该余数出现的次数已经达到n/m
+        ans+=(x-d+m)%m;  // 累加答案，+m防止x-d为负数，即处理特殊情况
+        a[i]+=(x-d+m)%m;  // 更新原数组，同理 
     }
     printf("%lld\n",ans);
     for(i=0;i<n;++i) printf("%lld ",a[i]);
