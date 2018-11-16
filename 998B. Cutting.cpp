@@ -44,3 +44,39 @@ output
 2
 
 */
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+const int MAXN=110;
+int a[MAXN],c[MAXN];
+
+int main(){
+    int n,m,i,tot=0,odd,even;
+    scanf("%d%d",&n,&m);
+    for(i=1;i<=n;++i) scanf("%d",&a[i]);
+    odd=even=0;
+    for(i=1;i<n;i+=2){
+        if(a[i]%2) odd++;
+        else even++;
+        if(a[i+1]%2) odd++;
+        else even++;
+        if(odd==even&&i!=n-1){
+            odd=even=0;
+            c[tot++]=abs(a[i+2]-a[i+1]);
+        }
+    }
+    sort(c,c+tot);
+    int ans=0;
+    for(i=0;i<tot;++i){
+        if(m-c[i]>=0){
+            m-=c[i];
+            ans++;
+        }
+    }
+    printf("%d",ans);
+}
+
+
+
