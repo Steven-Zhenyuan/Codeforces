@@ -37,6 +37,8 @@ input
 output
 244
 
+解法：有i,j,k,p个I,V,X,L，即i+j+k+p=n，即可能的结果是i+5*j+10*k+50*p，通过打表发现，n>12时，是等差数列，公差为49
+
 */
 
 #include<bits/stdc++.h>
