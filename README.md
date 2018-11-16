@@ -31,3 +31,5 @@
 [997A. Convert to Ones —— Math](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/997A.%20Convert%20to%20Ones.cpp)
 
 [997B. Roman Digits —— Math](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/997B.%20Roman%20Digits.cpp)
+
+[(unsolved) 997C. Sky Full of Stars —— 容斥原理](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/997C.%20Sky%20Full%20of%20Stars.cpp)
