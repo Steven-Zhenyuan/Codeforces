@@ -28,4 +28,4 @@
 
 [998B. Cutting —— 贪心](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/998B.%20Cutting.cpp)
 
-[997A. Convert to Ones —— ](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/997A.%20Convert%20to%20Ones.cpp)
+[997A. Convert to Ones —— Math](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/997A.%20Convert%20to%20Ones.cpp)
