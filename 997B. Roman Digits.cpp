@@ -38,3 +38,18 @@ output
 244
 
 */
+
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+const int ans[]={0,4,10,20,35,56,83,116,155,198,244,292};
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    if(n<12) printf("%d",ans[n]);
+    else printf("%lld",49ll*(n-11)+ans[11]);
+}
+
+
