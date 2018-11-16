@@ -43,6 +43,9 @@ input
 output
 2
 
+解法：记录每个可以cut的位置以及cost，用两个变量代表odd和even
+      贪心思路，为了获得最多数量的cut，将所有cost排序，从最小的开始累加直到超过上限m
+
 */
 
 #include <bits/stdc++.h>
