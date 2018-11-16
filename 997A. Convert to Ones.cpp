@@ -45,6 +45,12 @@ input
 output
 0
 
+解法：有两种方法将整个string转换为00...0，先计数连续的0为cnt
+     1. 将每段连续的0取反，则cnt*y
+     2. 反转连续的两段0和1，即可将两段0连接起来，如000111000反转为111000000，因此共有cnt-1次反转操作，最后在取反，则(cnt-1)*x+y
+     x>=y时，cnt*y<(cnt-1)*x+y
+     x<y时，cnt*y>=(cnt-1)*x+y
+
 */
 
 #include <bits/stdc++.h>
@@ -58,8 +64,8 @@ int main(){
     int n,x,y,cnt=0;
     scanf("%d%d%d%s",&n,&x,&y,s);
     for(int i=0,j=0;i<n;i=j){
-        while(j<n&&s[i]==s[j]) j++;
-        if(s[i]=='0') cnt++;
+        while(j<n&&s[i]==s[j]) j++;  // 定位连续的0或1
+        if(s[i]=='0') cnt++;  // 计数连续的0
     }
     ll ans;
     if(!cnt) ans=0;
