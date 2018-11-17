@@ -41,3 +41,46 @@ output
 9933
 
 */
+
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+const int MAXN=1000010;
+const int MOD=998244353;
+
+int C[MAXN],inv[MAXN];
+
+ll quickpow(ll a,ll b){
+    ll ans=1;
+    while(b){
+        if(b&1) ans=ans*a%MOD;
+        b/=2;
+        a=a*a%MOD;
+    }
+    return ans;
+}
+
+int main(){
+    int n,i,base;
+    scanf("%d",&n);
+    ll ans1=0;
+    C[0]=inv[1]=1;
+    for(i=1;i<=n;++i){
+        if(i>1) inv[i]=1ll*(MOD-MOD/i)*inv[MOD%i]%MOD;
+        C[i]=1ll*(n-i+1)*C[i-1]%MOD*inv[i]%MOD;
+        if(i&1) ans1+=1ll*C[i]*quickpow(3,(1ll*n*(n-i)+i)%(MOD-1))%MOD;
+        else ans1-=1ll*C[i]*quickpow(3,(1ll*n*(n-i)+i)%(MOD-1))%MOD;
+    }
+    ans1=2ll*ans1%MOD;
+    ll ans2=0;
+    for(i=0,base=1;i<n;++i){
+        if(i&1) ans2+=1ll*C[i]*(quickpow(1+MOD-base,n)-quickpow(MOD-base,n))%MOD;
+        else ans2-=1ll*C[i]*(quickpow(1+MOD-base,n)-quickpow(MOD-base,n))%MOD;
+        base=3ll*base%MOD;
+    }
+    printf("%lld\n",((ans1+3ll*ans2)%MOD+MOD)%MOD);
+}
+
+
+
