@@ -32,4 +32,10 @@
 
 [997B. Roman Digits —— Math](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/997B.%20Roman%20Digits.cpp)
 
-[* 997C. Sky Full of Stars —— 容斥原理](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/997C.%20Sky%20Full%20of%20Stars.cpp)
+[*? 997C. Sky Full of Stars —— 容斥原理](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/997C.%20Sky%20Full%20of%20Stars.cpp)
+
+[996A. Hit the Lottery —— ](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/996A.%20Hit%20the%20Lottery.cpp)
+
+[996B. World Cup —— ](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/996B.%20World%20Cup.cpp)
+
+[995B. Suit and Tie —— ](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/995B.%20Suit%20and%20Tie.cpp)
