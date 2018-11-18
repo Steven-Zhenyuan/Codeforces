@@ -38,4 +38,4 @@
 
 [996B. World Cup —— Math](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/996B.%20World%20Cup.cpp)
 
-[995B. Suit and Tie —— ](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/995B.%20Suit%20and%20Tie.cpp)
+[995B. Suit and Tie —— 贪心](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/995B.%20Suit%20and%20Tie.cpp)
