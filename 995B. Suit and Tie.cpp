@@ -37,3 +37,33 @@ output
 3
 
 */
+
+
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int INF=0x3f3f3f3f;
+
+const int MAXN=220;
+int a[MAXN];
+
+int main(){
+    int n,i,j;
+    scanf("%d",&n);
+    n<<=1;
+    for(i=1;i<=n;++i) scanf("%d",&a[i]);
+    int ans=0;
+    for(i=1;i<n-1;i+=2){
+        if(a[i]!=a[i+1]){
+            int pos=find(a+i+1,a+n,a[i])-a;
+            for(j=pos;j>i+1;--j){
+                ans++;
+                swap(a[j],a[j-1]);
+            }
+        }
+    }
+    printf("%d",ans);
+}
+
+
+
