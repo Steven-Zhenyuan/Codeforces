@@ -39,4 +39,34 @@ input
 output
 6
 
+解法：假设经过x圈能在第i个入口进入，即x*n+i=a[i]，x=(a[i]-i)/n，为了保证为正数，则x=(a[i]-i+n)/n
+      取圈数最少的为第一个进入的入口
+
 */
+
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int INF=0x3f3f3f3f;
+
+const int MAXN=100010;
+int a[MAXN];
+
+int main(){
+    int n,i,x;
+    scanf("%d",&n);
+    for(i=1;i<=n;++i) scanf("%d",&a[i]);
+    int ans=0,mn=INF;
+    for(i=1;i<=n;++i){
+        x=(a[i]-i+n)/n;
+        if(x<mn){
+            mn=x;
+            ans=i;
+        }
+    }
+    printf("%d",ans);
+}
+
+
+
+
