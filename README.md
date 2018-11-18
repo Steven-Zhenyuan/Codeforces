@@ -34,7 +34,7 @@
 
 [*? 997C. Sky Full of Stars —— 容斥原理](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/997C.%20Sky%20Full%20of%20Stars.cpp)
 
-[996A. Hit the Lottery —— ](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/996A.%20Hit%20the%20Lottery.cpp)
+[996A. Hit the Lottery —— 贪心](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/996A.%20Hit%20the%20Lottery.cpp)
 
 [996B. World Cup —— ](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/996B.%20World%20Cup.cpp)
 
