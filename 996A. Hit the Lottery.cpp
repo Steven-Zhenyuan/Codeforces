@@ -28,4 +28,25 @@ input
 output
 10000000
 
+解法：从大到小开始减并累加次数
+
 */
+
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    int ans=0;
+    while(n>=100) n-=100,ans++;
+    while(n>=20) n-=20,ans++;
+    while(n>=10) n-=10,ans++;
+    while(n>=5) n-=5,ans++;
+    printf("%d",ans+n);
+}
+
+
+
+
