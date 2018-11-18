@@ -39,3 +39,7 @@
 [996B. World Cup —— Math](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/996B.%20World%20Cup.cpp)
 
 [995B. Suit and Tie —— 贪心](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/995B.%20Suit%20and%20Tie.cpp)
+
+[995C. Leaving the Bar —— 随机化+贪心](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/995C.%20Leaving%20the%20Bar.cpp)
+
+[995D. Game —— 概率期望](https://github.com/Zhenyuan-Xi/Codeforces/blob/master/995D.%20Game.cpp)
